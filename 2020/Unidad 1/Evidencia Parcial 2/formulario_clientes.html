@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+
+<!-- Max 12 de tamaño por fila-->
+<div class="container">
+  <div class="row"> <!-- row = fila -->
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+
+    <!-- Formulario centrado -->
+    <h1> Formulario Clientes </h1>
+        
+        <form method="POST" name=”formClientes” action="guardar.php">
+
+        <!-- Primer input "Nombre" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Nombre</label>
+          <input type="text" placeholder="Ingrese nombre" name="nombre" class="form-control">
+        </div>
+
+        <!-- Segundo input "Apellidos" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Apellidos</label>
+          <input type="text" placeholder="Ingrese apellidos" name="apellidos" class="form-control">
+        </div>
+        
+        <!-- Tercer input "Tipo documento" Tipo "Text" -->
+        <div class="form-group">
+          <label for="sel1">Tipo documento</label>
+            <select class="form-control" name="tipoDocumento">
+                   <option value="Cédula">Cédula</option>
+                   <option value="TI">Tarjeta de identidad</option>
+                   <option value="Otro">Otro</option>
+           </select>
+        </div>
+
+         <!-- Cuarto input "Número documento" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Número de documento</label>
+          <input type="text" placeholder="Ingrese número documento" name="numDocumento" class="form-control">
+        </div>
+
+        <!-- Quinto input "Dirección" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Dirección</label>
+          <input type="text" placeholder="Ingrese la dirección" name="dirección" class="form-control">
+        </div>
+
+        <!-- Sexto input "Correo" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Correo electrónico</label>
+          <input type="text" placeholder="Ingrese correo" name="correo" class="form-control">
+        </div>
+
+        <!-- Septimo input "Teléfono" Tipo "Text" -->
+        <div class="form-group"> 
+          <label for="ejemplo_text_1">Teléfono</label>
+          <input type="text" placeholder="Ingrese teléfono" name="teléfono" class="form-control">
+        </div>
+
+        <!-- Optavo DateSelect Tipo "Text" -->
+        <div class="form-group">
+          <label for="date">Fecha de nacimiento</label>
+          <input type="date" class="form-control" placeholder="Ingrese fecha" name="fechaNacimiento">
+        </div>
+
+        <!-- Botón submit que llevará al action (php) -->
+        <button type="submit" class="btn btn-primary">Agregar
+        </form>
+    </div>    
+    <div class="col-sm-3"></div>
+  </div>
+</div>
+<!---->
+</body>
+</html>

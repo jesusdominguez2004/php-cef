@@ -1,0 +1,44 @@
+Este es un documento para ver las cosas que tengo que hacer:
+
+- Login.html + menú.php + validaciones + SQL - Hecho
+- Siempre un diseño agradable - Hecho
+
+# Crear (Insert) - Hecho
+crear_productos.html + validaciones + guardar_productos.php + SQL - Hecho
+crear_usuarios.html + validaciones + guardar_usuarios.php + SQL - Hecho
+crear_clientes.html + validaciones + guardar_clientes.php + SQL - Hecho
+
+# Buscar (Select) - Hecho
+buscar_productos.html + validaciones + mostrar_busqueda_productos.php + SQL - Hecho
+buscar_usuarios.html + validaciones + mostrar_busqueda_usuarios.php + SQL - Hecho
+buscar_clientes.html + validaciones + mostrar_busqueda_clientes.php + SQL - Hecho
+
+# Actualizar (Update) - Hecho
+editar_productos.php + validaciones + Btn Editar + SQL - Hecho
+editar_usuarios.php + validaciones + Btn Editar + SQL - Hecho
+editar_clientes.php + validaciones + Btn Editar + SQL - Hecho
+
+# Eliminar (Delete) - Hecho
+editar_productos.php + actualizar_productos.php + mensaje de confimación + Btn Eliminar + SQL - Hecho
+editar_usuarios.php + actualizar_usuarios.php + mensaje de confimación + Btn Eliminar + SQL - Hecho
+editar_clientes.php + actualizar_clientes.php + mensaje de confimación + Btn Eliminar + SQL - Hecho
+
+# Mostrar todo
+mostrar_todo_productos.php + SQL - Hecho
+mostrar_todo_usuarios.php + SQL - Hecho
+mostrar_todo_clientes.php + SQL - Hecho
+mostrar_todo.php + SQL - Hecho
+
+Si tengo tiempo, quisiera agregar algunas cosas más:
+- imgs en cada formulario
+- imgs en cada busqueda
+- imgs en cada resultado
+
+- Que los mensajes de error aparezcan en la misma hoja
+- No dejar crear un usuario o cliente si tienen el mismo número de documento que alguien más
+- No dejar crear un producto si tienen el mismo código parner que otro más
+
+- Cuando se muestre una hoja de resultado, que también hayan botones para volver al menú y/o otro lugar 
+- Revisar las notas y los titles de todas las hojas
+
+Jesús Alberto Domínguez Charris

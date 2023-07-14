@@ -1,0 +1,50 @@
+Actividad 3 - Jesús Alberto
+
+1)Tabla producto [tb_producto]
+
+CREATE table tb_producto (
+    codigo_prod varchar(20),
+    nombre varchar(80),
+    grupo_prod varchar(20),
+    tipo_prod varchar(20),
+    descripcion varchar(500),
+    valor_compra double,
+    valor_venta double,
+    porcentaje_comis double,
+    valor_comi double,
+    fecha date,
+    nomarchivo varchar(100),
+    ubicfoto varchar(100),
+    cod_parner varchar(40),
+    pos double
+);
+- - - - - - - - - -
+2) Tabla Clientes [tb_clientes]
+
+CREATE table tb_clientes (
+    id_cliente int(5),
+    tipo_doc int(1),
+    num_doc int(11),
+    nombre varchar(30),
+    apellido varchar(30),
+    dir_casa varchar(45),
+    correo varchar(80),
+    telefono varchar(11),
+    fecha_nac date,
+    PRIMARY KEY (id_cliente)
+);
+- - - - - - - - - - 
+3) Tabla usuario [tb_usuario]
+
+CREATE table tb_usuario (
+  	id_usuario double,
+  	login_usuario varchar(10),
+  	password_usuario varchar(10),
+  	nombre_usuario varchar(20),
+  	apellido_usuario varchar(20),
+  	identificacion varchar(15),
+  	id_tipodocumento int(11),
+  	telefono varchar(15),
+  	id_perfil int(11),
+  	PRIMARY KEY (id_usuario)  	
+  );

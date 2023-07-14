@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+</head>
+<body>
+<!-- Max 12 de tamaño por fila-->
+<div class="container">
+  <div class="row"> <!-- row = fila -->
+    <div class="col-sm-4">.col-sm-1</div>
+    
+    <div class="col-sm-4"> <!-- Vamos a hacer el formulario en el centro -->
+
+    <!-- Formulario -->
+        <h1> Formulario </h1>
+        
+        <form method="POST" name=”nombre_formulario” action="resultado_areaTriangulo.php">
+
+        <!-- Primer input "Base" Tipo "Number" -->
+        <div class="form-group">
+            <label for="numberl">Ingrese la base:</label>
+            <input type="number" name="base" min="0" max="500" step="1" class="form-control" placeholder="Base" id="num">
+        </div>
+
+        <!-- Segundo input "Altura" Tipo "Number -->
+        <div class="form-group">
+            <label for="numberl">Ingrese la altura:</label>
+            <input type="number" name="altura" min="0" max="500" step="1" class="form-control" placeholder="Altura" id="num">
+        </div>
+
+        <!-- Botón "Calcular" Tipo "submit" = Eviar al action-->
+        <button type="submit" class="btn btn-primary">Calcular
+        </form>
+
+    </div>
+    <!---->
+    <div class="col-sm-4">.col-sm-3</div>
+  </div>
+</div>
+<!---->
+</body>
+</html>

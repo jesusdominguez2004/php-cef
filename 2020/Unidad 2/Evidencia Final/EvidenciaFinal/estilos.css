@@ -1,0 +1,9 @@
+/* Esta es mi hoja de estilos */
+#inputSinBordes {
+	border: none;
+}
+
+#barraMenú {
+	background: #262626;
+	color: #fff;
+}
