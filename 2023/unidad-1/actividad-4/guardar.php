@@ -12,22 +12,28 @@
 <body>
     <!-- Contenido página -->
     <div class="container mt-3">    
-        <h2>Unidad 1 | Actividad 4 <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form action="guardar.php" method="post">
-            <div class="mb-3 mt-3">
-                <label for="nombre">Nombre:</label>
-                <input type="text" class="form-control" required id="nombre" name="nombre" placeholder="Ingrese nombre">
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="apellido">Apellido:</label>
-                <input type="text" class="form-control" required id="apellido" name="apellido" placeholder="Ingrese apellido">
-            </div>
-            <div class="mb-3 mt-3">
-                <label for="correo">Correo:</label>
-                <input type="text" class="form-control" required id="correo" name="correo" placeholder="Ingrese correo">
-            </div>
-            <button type="submit" class="btn btn-primary">Guardar usuario</button>
-        </form>
+        <?php
+            include "conexion.php";
+            include "clase_ingreso.php";
+
+            $nombre = $_REQUEST["nombre"];
+            $apellido = $_REQUEST["apellido"];
+            $correo = $_REQUEST["correo"];
+
+            $dato_entrada = new ClaseIngreso();
+            $dato_entrada -> set_nombre($nombre);
+            $dato_entrada -> set_apellido($apellido);
+            $dato_entrada -> set_correo($correo);
+
+            $proceso = new ClaseIngreso();
+            $consulta = $proceso -> insertar_usuario($dato_entrada);
+            
+            echo "<div class='mt-4 p-5 bg-primary text-white rounded'>";
+            echo "<h2>Mensaje del sistema</h2>";
+            echo "<p>¡Usuario guardado!</p>";
+            echo "<a href='index.html' class='btn btn-light'>Ir a index.html</a>";
+            echo "</div>";
+        ?>
     </div>
 
     <!-- JavaScript: jQuery, Bootstrap, pooperjs -->

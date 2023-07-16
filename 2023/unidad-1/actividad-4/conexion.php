@@ -10,53 +10,53 @@
         public function __construct() {
             $this -> host = "localhost";
             $this -> user = "root";
-            $this -> pass = "";
+            $this -> password = "";
             $this -> database = "bd_almacen";
         }
 
         public function conectar() {
             try {
-                $this -> con = new PDO(
+                $this -> conexion = new PDO(
                     "mysql:host=" . $this -> host . ";dbname=" . $this -> database,
                     $this -> user,
                     $this -> password
                 );
                 echo "¡Conexión exitosa!";
             } catch (PDOException $ex) {
-                echo "Problema de conexión..." . $ex -> getMessage();
+                echo "Problema de conexión: " . $ex -> getMessage();
                 exit;
             }
         }
 
-        public function getHost() {
+        public function get_host() {
             return $this -> host;
         }
 
-        public function getUser() {
+        public function get_user() {
             return $this -> user;
         }
 
-        public function getDatabase() {
+        public function get_database() {
             return $this -> database;
         }
 
-        public function getPassword() {
+        public function get_password() {
             return $this -> password;
         }
 
-        public function setHost($host) {
+        public function set_host($host) {
             $this -> host = $host;
         }
 
-        public function setUser($user) {
+        public function set_user($user) {
             $this -> user = $user;
         }
 
-        public function setDatabase($database) {
+        public function set_database($database) {
             $this -> database = $database;
         }
 
-        public function setPassword($password) {
+        public function set_password($password) {
             $this -> password = $password;
         }
     }
