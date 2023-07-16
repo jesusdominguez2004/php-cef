@@ -1,6 +1,6 @@
 <?php
     class ClaseIngreso {
-        private $name;
+        private $nombre;
         private $apellido;
         private $correo;
         private $codigo_u;
