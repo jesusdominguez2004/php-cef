@@ -15,41 +15,26 @@
         include "conexion.php";
         include "clase_ingreso.php";
 
-        $nombres = $_REQUEST["nombres"];
-        $apellidos = $_REQUEST["apellidos"];
-        $tipoDocumento = $_REQUEST["tipoDocumento"];
-        $numDocumento = $_REQUEST["numDocumento"];
-        $direccion = $_REQUEST["direccion"];
+        $nombre = $_REQUEST["nombre"];
+        $apellido = $_REQUEST["apellido"];
         $correo = $_REQUEST["correo"];
-        $telefono = $_REQUEST["telefono"];
-        $fechaNacimiento = $_REQUEST["fechaNacimiento"];
         
         $dato_entrada = new ClaseIngreso();
-        $dato_entrada -> set_nombres($nombres);
-        $dato_entrada -> set_apellidos($apellidos);
-        $dato_entrada -> set_tipo_doc($tipoDocumento);
-        $dato_entrada -> set_num_doc($numDocumento);
-        $dato_entrada -> set_dir_casa($direccion);
+        $dato_entrada -> set_nombre_u($nombre);
+        $dato_entrada -> set_apellido_u($apellido);
         $dato_entrada -> set_correo($correo);
-        $dato_entrada -> set_telefono($telefono);
-        $dato_entrada -> set_fecha_nac($fechaNacimiento);
 
         $proceso = new ClaseIngreso();
-        $consulta = $proceso -> insertar_cliente($dato_entrada);
+        $consulta = $proceso -> insertar_usuario($dato_entrada);
     ?>
 
     <div class="container mt-3">    
         <?php
             echo "<div class='shadow-lg mt-4 p-5 bg-primary text-white rounded'>";
             echo "<h2>¡Cliente guardado!</h2>";
-            echo "<p>Nombres: $nombres</p>";
-            echo "<p>Apellidos: $apellidos</p>";
-            echo "<p>Tipo documento: $tipoDocumento</p>";
-            echo "<p>Número documento: $numDocumento</p>";
-            echo "<p>Dirección: $direccion</p>";
+            echo "<p>Nombre: $nombre</p>";
+            echo "<p>Apellido: $apellido</p>";
             echo "<p>Correo: $correo</p>";
-            echo "<p>Teléfono: $telefono</p>";
-            echo "<p>Fecha nacimiento: $fechaNacimiento</p>";
             echo "<a href='index.html' class='btn btn-light'>Ir a index.html</a>";
             echo "</div>";
         ?>

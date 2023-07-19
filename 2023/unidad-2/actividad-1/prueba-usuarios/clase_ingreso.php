@@ -1,6 +1,5 @@
 <?php
     class ClaseIngreso {
-        // private $codigo_u;
         private $nombre_u;
         private $apellido_u;
         private $correo;
@@ -63,5 +62,6 @@
 
         // 2. buscar usuario "prueba_tb_usuario"
         
+
     }
 ?>
