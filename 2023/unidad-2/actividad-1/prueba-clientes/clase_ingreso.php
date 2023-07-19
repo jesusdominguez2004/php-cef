@@ -1,6 +1,7 @@
 <?php
 use ClaseIngreso as GlobalClaseIngreso;
     class ClaseIngreso {
+        private $id_cliente;
         private $tipo_doc;
         private $num_doc;
         private $nombres;
@@ -17,6 +18,14 @@ use ClaseIngreso as GlobalClaseIngreso;
         private $conexion;
         
         // métodos set y get
+        public function set_id_cliente($id_cliente) {
+            $this -> id_cliente = $id_cliente;
+        }
+
+        public function get_id_cliente() {
+            return $this -> id_cliente;
+        }
+
         public function set_tipo_doc($tipo_doc) {
             $this -> tipo_doc = $tipo_doc;
         }
@@ -106,35 +115,45 @@ use ClaseIngreso as GlobalClaseIngreso;
             }
         }
 
-        // 2. buscar usuario "prueba_tb_clientes"
-        public function buscar_usuario(GlobalClaseIngreso $buscar) {
-            $matriz_usuarios = array();
+        // 2. buscar cliente "prueba_tb_clientes"
+        public function buscar_cliente(GlobalClaseIngreso $buscar) {
+            $matriz_clientes = array();
             try {
                 $this -> conexion = new PDO(
                     "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
                     $this->user, 
                     $this->password
                 );
-                $sql = "SELECT codigo_u, nombre_u, apellido_u, correo FROM prueba_tb_usuarios WHERE codigo_u = {$buscar->get_codigo_u()} ORDER BY apellido_u";              
+                $sql = "SELECT id_cliente, tipo_doc, num_doc, nombres, apellidos, dir_casa, correo, telefono, fecha_nac FROM prueba_tb_clientes WHERE id_cliente = {$buscar->get_id_cliente()} ORDER BY apellidos";              
                 $sth = $this -> conexion -> prepare($sql);
                 $sth -> execute();
 
                 while ($row = $sth -> fetch()) {
-                    $codigo_u = $row["codigo_u"];
-                    $nombre_u = $row["nombre_u"];
-                    $apellido_u = $row["apellido_u"];
+                    $id_cliente = $row["id_cliente"];
+                    $tipo_doc = $row["tipo_doc"];
+                    $num_doc = $row["num_doc"];
+                    $nombres = $row["nombres"];
+                    $apellidos = $row["apellidos"];
+                    $dir_casa = $row["dir_casa"];
                     $correo = $row["correo"];
-                    $matriz_usuarios[] = array(
-                        "codigo_u" => $codigo_u, 
-                        "nombre_u" => $nombre_u, 
-                        "apellido_u" => $apellido_u, 
-                        "correo" => $correo
+                    $telefono = $row["telefono"];
+                    $fecha_nac = $row["fecha_nac"];
+                    $matriz_clientes[] = array(
+                        "id_cliente" => $id_cliente, 
+                        "tipo_doc" => $tipo_doc, 
+                        "num_doc" => $num_doc, 
+                        "nombres" => $nombres, 
+                        "apellidos" => $apellidos, 
+                        "dir_casa" => $dir_casa, 
+                        "correo" => $correo, 
+                        "telefono" => $telefono, 
+                        "fecha_nac" => $fecha_nac
                     );
                 }
-                $json_usuarios = json_encode($matriz_usuarios);
-                return $json_usuarios;
+                $json_clientes = json_encode($matriz_clientes);
+                return $json_clientes;
             } catch (PDOException $ex) {
-                die ("ERROR BUSCAR USUARIO: {$ex->getMessage()}");
+                die ("ERROR BUSCAR CLIENTE: {$ex->getMessage()}");
             }
         }
     }

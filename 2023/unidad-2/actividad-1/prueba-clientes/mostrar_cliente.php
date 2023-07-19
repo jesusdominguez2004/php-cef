@@ -11,19 +11,42 @@
 </head>
 <body>
     <!-- Contenido página -->
+    <?php 
+        include "conexion.php";
+        include "clase_ingreso.php";
+
+        if (isset($_REQUEST["id_cliente"])) {
+            $id_cliente = $_REQUEST["id_cliente"];
+            $cliente_buscar = new ClaseIngreso();
+            $cliente_buscar -> set_id_cliente($id_cliente);
+            $dato = new ClaseIngreso();
+            $consulta = $dato -> buscar_cliente($cliente_buscar);
+            $array_clientes = json_decode($consulta);
+            if (count($array_clientes) > 0) {
+                $id_cliente = $array_clientes[0] -> id_cliente;
+                $tipo_doc = $array_clientes[0] -> tipo_doc;
+                $num_doc = $array_clientes[0] -> num_doc;
+                $nombres = $array_clientes[0] -> nombres;
+                $apellidos = $array_clientes[0] -> apellidos;
+                $dir_casa = $array_clientes[0] -> dir_casa;
+                $correo = $array_clientes[0] -> correo;
+                $telefono = $array_clientes[0] -> telefono;
+                $fecha_nac = $array_clientes[0] -> fecha_nac;
+    ?>
+
     <div class="container mt-3">    
         <h2>Unidad 2 | Actividad 1 <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form action="guardar_cliente.php" method="post">
-            <div class="row">
+        <form role="form" action="mostrar_busqueda.php" method="post" name="formulario">
+        <div class="row">
                 <div class="col-6">
                     <div class="mb-3 mt-3">
                         <label for="nombres">Nombres cliente:</label>
-                        <input type="text" class="form-control" required id="nombres" name="nombres" placeholder="Ingrese nombres cliente">
+                        <input type="text" class="form-control" readonly value="<?php echo $nombres; ?>" id="nombres" name="nombres">
                     </div>
         
                     <div class="mb-3 mt-3">
                         <label for="apellidos">Apellidos cliente:</label>
-                        <input type="text" class="form-control" required id="apellidos" name="apellidos" placeholder="Ingrese apellidos cliente">
+                        <input type="text" class="form-control" readonly value="<?php echo $apellidos; ?>"  id="apellidos" name="apellidos">
                     </div>
         
                     <div class="mb-3 mt-3">
@@ -37,34 +60,35 @@
         
                     <div class="mb-3 mt-3">
                         <label for="numDocumento">Número documento:</label>
-                        <input type="number" class="form-control" required min="0" max="999999999999" step="1" id="numDocumento" name="numDocumento" placeholder="Ingrese número documento">
+                        <input type="number" class="form-control" readonly value="<?php echo $num_doc; ?>"  id="numDocumento" name="numDocumento">
                     </div>
                 </div>
 
                 <div class="col-6">
                     <div class="mb-3 mt-3">
                         <label for="direccion">Dirección casa:</label>
-                        <input type="text" class="form-control" required id="direccion" name="direccion" placeholder="Ingrese dirección casa">
+                        <input type="text" class="form-control" readonly value="<?php echo $dir_casa; ?>"  id="direccion" name="direccion">
                     </div>
         
                     <div class="mb-3 mt-3">
                         <label for="correo">Correo:</label>
-                        <input type="text" class="form-control" required id="correo" name="correo" placeholder="Ingrese correo">
+                        <input type="text" class="form-control" readonly value="<?php echo $correo; ?>"  id="correo" name="correo">
                     </div>
         
                     <div class="mb-3 mt-3">
                         <label for="telefono">Teléfono:</label>
-                        <input type="text" class="form-control" required id="telefono" name="telefono" placeholder="Ingrese teléfono">
+                        <input type="text" class="form-control" readonly value="<?php echo $telefono; ?>"  id="telefono" name="telefono">
                     </div>
         
                     <div class="mb-3 mt-3">
                         <label for="fechaNacimiento">Fecha de nacimiento:</label>
-                        <input type="date" class="form-control" required id="fechaNacimiento" name="fechaNacimiento" placeholder="Ingrese fecha de nacimiento">
+                        <input type="date" class="form-control" readonly value="<?php echo $fecha_nac; ?>"  id="fechaNacimiento" name="fechaNacimiento">
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar cliente</button>
-            <a href="buscar_cliente.php" class="btn btn-success">Buscar cliente</a>
+
+            <a href="buscar_cliente.php" class="btn btn-success">Volver a buscar_cliente.php</a>
+            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
         </form>
 
         <br>
@@ -72,6 +96,27 @@
             <strong>Nota:</strong> Tabla "prueba_tb_clientes"
         </div>
     </div>
+
+    <?php 
+            } else {
+                echo "<div class='container mt-3'>";
+                echo "<div class='alert alert-danger'>";
+                echo "<strong>Sistema:</strong> Cliente no existe... (id_cliente = $id_cliente)";
+                echo "</div>";
+                echo "<a href='buscar_cliente.php' class='btn btn-success'>Volver a buscar_cliente.php</a>";
+                echo "</div>";
+                $id_cliente = "";
+                $tipo_doc = "";
+                $num_doc = "";
+                $nombres = "";
+                $apellidos = "";
+                $dir_casa = "";
+                $correo = "";
+                $telefono = "";
+                $fecha_nac = ""; 
+            }
+        }
+    ?>
 
     <!-- JavaScript: jQuery, Bootstrap, pooperjs -->
     <script src="https://code.jquery.com/jquery-3.7.0.slim.min.js" integrity="sha256-tG5mcZUtJsZvyKAxYLVXrmjKBVLd6VpVccqz/r4ypFE=" crossorigin="anonymous"></script>
