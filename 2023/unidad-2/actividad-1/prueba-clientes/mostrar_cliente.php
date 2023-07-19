@@ -52,9 +52,9 @@
                     <div class="mb-3 mt-3">
                         <label for="horas">Tipo documento:</label>
                         <select class="form-control" id="tipoDocumento" name="tipoDocumento">
-                            <option value="0">Cédula</option>
-                            <option value="1">Tarjeta de identidad</option>
-                            <option value="2">Otro</option>
+                            <option value="0" <?php if ($tipo_doc == 0) echo "selected"; ?>>Cédula</option>
+                            <option value="1" <?php if ($tipo_doc == 1) echo "selected"; ?>>Tarjeta de identidad</option>
+                            <option value="2" <?php if ($tipo_doc == 2) echo "selected"; ?>>Otro</option>
                         </select>
                     </div>
         

@@ -107,7 +107,7 @@ use ClaseIngreso as GlobalClaseIngreso;
                     $this->user, 
                     $this->password
                 );
-                $sql = "INSERT INTO prueba_tb_clientes (tipo_doc, num_doc, nombres, apellidos, dir_casa, correo, telefono, fecha_nac) VALUES ({$cliente->get_tipo_doc()}, {$cliente->get_num_doc()}, '{$cliente->get_nombres()}', '{$cliente->get_apellidos()}', '{$cliente->get_dir_casa()}', '{$cliente->get_correo()}', '{$cliente->get_telefono()}', {$cliente->get_fecha_nac()})";
+                $sql = "INSERT INTO prueba_tb_clientes (tipo_doc, num_doc, nombres, apellidos, dir_casa, correo, telefono, fecha_nac) VALUES ({$cliente->get_tipo_doc()}, {$cliente->get_num_doc()}, '{$cliente->get_nombres()}', '{$cliente->get_apellidos()}', '{$cliente->get_dir_casa()}', '{$cliente->get_correo()}', '{$cliente->get_telefono()}', '{$cliente->get_fecha_nac()}')";
                 $iniciarSQL = $this -> conexion -> prepare($sql);
                 $iniciarSQL -> execute();
             } catch (PDOException $ex) {
