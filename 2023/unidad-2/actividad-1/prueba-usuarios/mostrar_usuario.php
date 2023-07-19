@@ -52,7 +52,7 @@
                 <input type="text" class="form-control" readonly value="<?php echo $correo; ?>" id="correo" name="correo">
             </div>
 
-            <a href="buscar.php" class="btn btn-success">Volver a buscar.php</a>
+            <a href="buscar_usuario.php" class="btn btn-success">Volver a buscar.php</a>
             <a href="index.html" class="btn btn-primary">Volver a index.html</a>
         </form>
 
@@ -68,7 +68,7 @@
                 echo "<div class='alert alert-danger'>";
                 echo "<strong>Sistema:</strong> Usuario no existe... (codigo_u = $codigo_buscar)";
                 echo "</div>";
-                echo "<a href='buscar.php' class='btn btn-success'>Volver a buscar.php</a>";
+                echo "<a href='buscar_usuario.php' class='btn btn-success'>Volver a buscar.php</a>";
                 echo "</div>";
                 $codigo_u = "";
                 $nombre_u = "";
