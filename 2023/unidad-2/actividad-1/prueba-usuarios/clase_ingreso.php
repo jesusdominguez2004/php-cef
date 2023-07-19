@@ -1,5 +1,7 @@
 <?php
+use ClaseIngreso as GlobalClaseIngreso;
     class ClaseIngreso {
+        private $codigo_u;
         private $nombre_u;
         private $apellido_u;
         private $correo;
@@ -11,6 +13,14 @@
         private $conexion;
         
         // métodos set y get
+        public function set_codigo_u($codigo_u) {
+            $this -> codigo_u = $codigo_u;
+        }
+
+        public function get_codigo_u() {
+            return $this -> codigo_u;
+        }
+
         public function set_nombre_u($nombre_u) {
             $this -> nombre_u = $nombre_u;
         }
@@ -48,20 +58,48 @@
         public function insertar_usuario(ClaseIngreso $usuario) {
             try {
                 $this -> conexion = new PDO(
-                    "mysql:host=".$this->host . ";dbname=".$this->database,
-                    $this -> user, 
-                    $this -> password
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
                 );
                 $sql = "INSERT INTO prueba_tb_usuarios (nombre_u, apellido_u, correo) VALUES ('{$usuario->get_nombre_u()}', '{$usuario->get_apellido_u()}', '{$usuario->get_correo()}')";               
                 $iniciarSQL = $this -> conexion -> prepare($sql);
                 $iniciarSQL -> execute();
             } catch (PDOException $ex) {
-                die ("Problema de conexión INSERTAR USUARIOS: " . $ex -> getMessage());
+                die ("ERROR INSERTAR USUARIOS: {$ex->getMessage()}");
             }
         }
 
         // 2. buscar usuario "prueba_tb_usuario"
-        
+        public function buscar_usuario(GlobalClaseIngreso $buscar) {
+            $matriz_usuarios = array();
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "SELECT codigo_u, nombre_u, apellido_u, correo FROM prueba_tb_usuarios WHERE codigo_u = {$buscar->get_codigo_u()} ORDER BY apellido_u";              
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
 
+                while ($row = $sth -> fetch()) {
+                    $codigo_u = $row["codigo_u"];
+                    $nombre_u = $row["nombre_u"];
+                    $apellido_u = $row["apellido_u"];
+                    $correo = $row["correo"];
+                    $matriz_usuarios[] = array(
+                        "codigo_u" => $codigo_u, 
+                        "nombre_u" => $nombre_u, 
+                        "apellido_u" => $apellido_u, 
+                        "correo" => $correo
+                    );
+                }
+                $json_usuarios = json_encode($matriz_usuarios);
+                return $json_usuarios;
+            } catch (PDOException $ex) {
+                die ("ERROR BUSCAR USUARIOS: {$ex->getMessage()}");
+            }
+        }
     }
 ?>

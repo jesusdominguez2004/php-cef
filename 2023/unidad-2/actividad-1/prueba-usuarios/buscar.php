@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 2 | Evidencia Parcial 2 | PHP</title>
+    <title>Unidad 2 | Actividad 1 | PHP</title>
     <!-- CSS: Bootstrap 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Icons: Font Awesome 6.4.0 -->
@@ -13,10 +13,10 @@
     <!-- Contenido página -->
     <div class="container mt-3">    
         <h2>Unidad 2 | Actividad 1 <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form role="form" action="mostrar_busqueda.php" method="post" name="formulario">
+        <form role="form" action="mostrar_usuario.php" method="post" name="formulario">
             <div class="mb-3 mt-3">
-                <label for="codigoUsuario">Código usuario:</label>
-                <input type="number" class="form-control" required min="0" max="1000" step="1" id="codigoUsuario" name="codigoUsuario" placeholder="Ingrese código usuario buscar">
+                <label for="codigo">Código usuario:</label>
+                <input type="number" class="form-control" required min="0" max="1000" step="1" id="codigo" name="codigo" placeholder="Ingrese código usuario buscar">
             </div>
             <button type="submit" class="btn btn-success">Buscar usuario</button>
             <a href="index.html" class="btn btn-primary">Volver a index.html</a>
