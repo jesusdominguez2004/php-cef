@@ -1,10 +1,14 @@
 <?php
 use ClaseIngreso as GlobalClaseIngreso;
     class ClaseIngreso {
-        private $codigo_u;
-        private $nombre_u;
-        private $apellido_u;
+        private $tipo_doc;
+        private $num_doc;
+        private $nombres;
+        private $apellidos;
+        private $dir_casa;
         private $correo;
+        private $telefono;
+        private $fecha_nac;
 
         private $host;
         private $user;
@@ -13,28 +17,44 @@ use ClaseIngreso as GlobalClaseIngreso;
         private $conexion;
         
         // métodos set y get
-        public function set_codigo_u($codigo_u) {
-            $this -> codigo_u = $codigo_u;
+        public function set_tipo_doc($tipo_doc) {
+            $this -> tipo_doc = $tipo_doc;
         }
 
-        public function get_codigo_u() {
-            return $this -> codigo_u;
+        public function get_tipo_doc() {
+            return $this -> tipo_doc;
         }
 
-        public function set_nombre_u($nombre_u) {
-            $this -> nombre_u = $nombre_u;
+        public function set_num_doc($num_doc) {
+            $this -> num_doc = $num_doc;
         }
 
-        public function get_nombre_u() {
-            return $this -> nombre_u;
+        public function get_num_doc() {
+            return $this -> num_doc;
         }
 
-        public function set_apellido_u($apellido_u) {
-            $this -> apellido_u = $apellido_u;
+        public function set_nombres($nombres) {
+            $this -> nombres = $nombres;
         }
 
-        public function get_apellido_u() {
-            return $this -> apellido_u;
+        public function get_nombres() {
+            return $this -> nombres;
+        }
+
+        public function set_apellidos($apellidos) {
+            $this -> apellidos = $apellidos;
+        }
+
+        public function get_apellidos() {
+            return $this -> apellidos;
+        }
+
+        public function set_dir_casa($dir_casa) {
+            $this -> dir_casa = $dir_casa;
+        }
+
+        public function get_dir_casa() {
+            return $this -> dir_casa;
         }
 
         public function set_correo($correo) {
@@ -43,6 +63,22 @@ use ClaseIngreso as GlobalClaseIngreso;
 
         public function get_correo() {
             return $this -> correo;
+        }
+
+        public function set_telefono($telefono) {
+            $this -> telefono = $telefono;
+        }
+
+        public function get_telefono() {
+            return $this -> telefono;
+        }
+
+        public function set_fecha_nac($fecha_nac) {
+            $this -> fecha_nac = $fecha_nac;
+        }
+
+        public function get_fecha_nac() {
+            return $this -> fecha_nac;
         }
 
         // constructor and new class Conexion (nuevos atributos)
@@ -54,23 +90,23 @@ use ClaseIngreso as GlobalClaseIngreso;
             $this -> database = $dato -> get_database();
         }
 
-        // 1. insertar usuario "prueba_tb_usuarios"
-        public function insertar_usuario(ClaseIngreso $usuario) {
+        // 1. insertar cliente "prueba_tb_clientes"
+        public function insertar_cliente(ClaseIngreso $cliente) {
             try {
                 $this -> conexion = new PDO(
                     "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
                     $this->user, 
                     $this->password
                 );
-                $sql = "INSERT INTO prueba_tb_usuarios (nombre_u, apellido_u, correo) VALUES ('{$usuario->get_nombre_u()}', '{$usuario->get_apellido_u()}', '{$usuario->get_correo()}')";               
+                $sql = "INSERT INTO prueba_tb_clientes (tipo_doc, num_doc, nombres, apellidos, dir_casa, correo, telefono, fecha_nac) VALUES ({$cliente->get_tipo_doc()}, {$cliente->get_num_doc()}, '{$cliente->get_nombres()}', '{$cliente->get_apellidos()}', '{$cliente->get_dir_casa()}', '{$cliente->get_correo()}', '{$cliente->get_telefono()}', {$cliente->get_fecha_nac()})";
                 $iniciarSQL = $this -> conexion -> prepare($sql);
                 $iniciarSQL -> execute();
             } catch (PDOException $ex) {
-                die ("ERROR INSERTAR USUARIO: {$ex->getMessage()}");
+                die ("ERROR INSERTAR CLIENTE: {$ex->getMessage()}");
             }
         }
 
-        // 2. buscar usuario "prueba_tb_usuarios"
+        // 2. buscar usuario "prueba_tb_clientes"
         public function buscar_usuario(GlobalClaseIngreso $buscar) {
             $matriz_usuarios = array();
             try {
