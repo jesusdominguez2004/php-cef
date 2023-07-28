@@ -34,7 +34,7 @@
         <h2>Unidad 2 | Actividad 2 | Prueba usuarios <i class="fa-brands fa-php fa-xl"></i></h2>
         <div class="alert alert-success">
             <strong>Sistema:</strong> 
-            ¡Se ha guardado el usuario <?php echo "$nombre $apellido ($codigo, $correo)!"?> 
+            ¡Se ha actualizado el usuario <?php echo "$nombre $apellido ($codigo, $correo)!"?> 
         </div>
         <div class="alert alert-warning">
             <strong>Nota:</strong> Tabla "prueba_tb_usuarios"
