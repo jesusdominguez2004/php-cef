@@ -31,7 +31,7 @@
     ?>
 
     <div class="container mt-3">    
-        <h2>Unidad 2 | Actividad 2 | Prueba usuarios <i class="fa-brands fa-php fa-xl"></i></h2>
+        <h2>Unidad 2 | Actividad 2 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
         <div class="alert alert-success">
             <strong>Sistema:</strong> 
             ¡Se ha actualizado el usuario <?php echo "$nombre $apellido ($codigo, $correo)!"?> 
