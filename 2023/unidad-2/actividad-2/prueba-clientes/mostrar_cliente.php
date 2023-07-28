@@ -15,66 +15,107 @@
         include "conexion.php";
         include "clase_ingreso.php";
 
-        if (isset($_REQUEST["codigo"])) {
-            $codigo_buscar = $_REQUEST["codigo"];
-            $usuario_buscar = new ClaseIngreso();
-            $usuario_buscar -> set_codigo_u($codigo_buscar);
+        if (isset($_REQUEST["id_cliente"])) {
+            $id_cliente = $_REQUEST["id_cliente"];
+            $cliente_buscar = new ClaseIngreso();
+            $cliente_buscar -> set_id_cliente($id_cliente);
             $dato = new ClaseIngreso();
-            $consulta = $dato -> buscar_usuario($usuario_buscar);
-            $array_usuarios = json_decode($consulta);
-            if (count($array_usuarios) > 0) {
-                $codigo_u = $array_usuarios[0] -> codigo_u;
-                $nombre_u = $array_usuarios[0] -> nombre_u;
-                $apellido_u = $array_usuarios[0] -> apellido_u;
-                $correo = $array_usuarios[0] -> correo;
+            $consulta = $dato -> buscar_cliente($cliente_buscar);
+            $array_clientes = json_decode($consulta);
+            if (count($array_clientes) > 0) {
+                $id_cliente = $array_clientes[0] -> id_cliente;
+                $tipo_doc = $array_clientes[0] -> tipo_doc;
+                $num_doc = $array_clientes[0] -> num_doc;
+                $nombres = $array_clientes[0] -> nombres;
+                $apellidos = $array_clientes[0] -> apellidos;
+                $dir_casa = $array_clientes[0] -> dir_casa;
+                $correo = $array_clientes[0] -> correo;
+                $telefono = $array_clientes[0] -> telefono;
+                $fecha_nac = $array_clientes[0] -> fecha_nac;
     ?>
 
     <div class="container mt-3">    
-        <h2>Unidad 2 | Actividad 2 | Prueba usuarios <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form role="form" action="actualizar_usuario.php" method="post" name="formulario">
-            <div class="mb-3 mt-3">
-                <label for="codigo">Código usuario:</label>
-                <input type="number" class="form-control" required readonly value="<?php echo $codigo_u; ?>" id="codigo" name="codigo">
-            </div>
+        <h2>Unidad 2 | Actividad 2 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
+        <form role="form" action="mostrar_busqueda.php" method="post" name="formulario">
+            <div class="row">
+                <div class="col-6">
+                    <div class="mb-3 mt-3">
+                        <label for="nombres">Nombres cliente:</label>
+                        <input type="text" class="form-control" value="<?php echo $nombres; ?>" id="nombres" name="nombres">
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="apellidos">Apellidos cliente:</label>
+                        <input type="text" class="form-control" value="<?php echo $apellidos; ?>"  id="apellidos" name="apellidos">
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="horas">Tipo documento:</label>
+                        <select class="form-control" id="tipoDocumento" name="tipoDocumento">
+                            <option value="0" <?php if ($tipo_doc == 0) echo "selected"; ?>>Cédula</option>
+                            <option value="1" <?php if ($tipo_doc == 1) echo "selected"; ?>>Tarjeta de identidad</option>
+                            <option value="2" <?php if ($tipo_doc == 2) echo "selected"; ?>>Otro</option>
+                        </select>
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="numDocumento">Número documento:</label>
+                        <input type="number" class="form-control" value="<?php echo $num_doc; ?>"  id="numDocumento" name="numDocumento">
+                    </div>
+                </div>
 
-            <div class="mb-3 mt-3">
-                <label for="nombre">Nombre usuario:</label>
-                <input type="text" class="form-control" value="<?php echo $nombre_u; ?>" id="nombre" name="nombre">
+                <div class="col-6">
+                    <div class="mb-3 mt-3">
+                        <label for="direccion">Dirección casa:</label>
+                        <input type="text" class="form-control" value="<?php echo $dir_casa; ?>"  id="direccion" name="direccion">
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="correo">Correo:</label>
+                        <input type="text" class="form-control" value="<?php echo $correo; ?>"  id="correo" name="correo">
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" class="form-control" value="<?php echo $telefono; ?>"  id="telefono" name="telefono">
+                    </div>
+        
+                    <div class="mb-3 mt-3">
+                        <label for="fechaNacimiento">Fecha de nacimiento:</label>
+                        <input type="date" class="form-control" value="<?php echo $fecha_nac; ?>"  id="fechaNacimiento" name="fechaNacimiento">
+                    </div>
+                </div>
             </div>
-
-            <div class="mb-3 mt-3">
-                <label for="apellido">Apellido usuario:</label>
-                <input type="text" class="form-control" value="<?php echo $apellido_u; ?>" id="apellido" name="apellido">
-            </div>
-
-            <div class="mb-3 mt-3">
-                <label for="correo">Correo usuario:</label>
-                <input type="text" class="form-control" value="<?php echo $correo; ?>" id="correo" name="correo">
-            </div>
-
-            <button type="submit" class="btn btn-warning">Actualizar usuario</button>
-            <a href="buscar_usuario.php" class="btn btn-success">Volver a buscar.php</a>
+            
+            <button type="submit" class="btn btn-warning">Actualizar cliente</button>
+            <a href="buscar_cliente.php" class="btn btn-success">Volver a buscar_cliente.php</a>
             <a href="index.html" class="btn btn-primary">Volver a index.html</a>
         </form>
 
         <br>
         <div class="alert alert-warning">
-            <strong>Nota:</strong> Tabla "prueba_tb_usuarios"
+            <strong>Nota:</strong> Tabla "prueba_tb_clientes"
         </div>
     </div>
 
     <?php 
             } else {
                 echo "<div class='container mt-3'>";
+                echo "<h2>Unidad 2 | Actividad 2 | Prueba clientes <i class='fa-brands fa-php fa-xl'></i></h2>";
                 echo "<div class='alert alert-danger'>";
-                echo "<strong>Sistema:</strong> Usuario no existe... (codigo_u = $codigo_buscar)";
+                echo "<strong>Sistema:</strong> Cliente no existe... (id_cliente = $id_cliente)";
                 echo "</div>";
-                echo "<a href='buscar_usuario.php' class='btn btn-success'>Volver a buscar.php</a>";
+                echo "<a href='buscar_cliente.php' class='btn btn-success'>Volver a buscar_cliente.php</a>";
                 echo "</div>";
-                $codigo_u = "";
-                $nombre_u = "";
-                $apellido_u = "";
-                $correo = ""; 
+                $id_cliente = "";
+                $tipo_doc = "";
+                $num_doc = "";
+                $nombres = "";
+                $apellidos = "";
+                $dir_casa = "";
+                $correo = "";
+                $telefono = "";
+                $fecha_nac = ""; 
             }
         }
     ?>

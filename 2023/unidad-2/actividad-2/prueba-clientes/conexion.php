@@ -16,11 +16,7 @@
 
         public function conectar() {
             try {
-                $this -> conexion = new PDO(
-                    "mysql:host=" . $this -> host . ";dbname=" . $this -> database,
-                    $this -> user,
-                    $this -> password
-                );
+                $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
                 echo "¡Conexión exitosa!";
             } catch (PDOException $ex) {
                 echo "Problema de conexión: " . $ex -> getMessage();

@@ -66,6 +66,7 @@
     <?php 
             } else {
                 echo "<div class='container mt-3'>";
+                echo "<h2>Unidad 2 | Actividad 2 | Prueba usuarios <i class='fa-brands fa-php fa-xl'></i></h2>";
                 echo "<div class='alert alert-danger'>";
                 echo "<strong>Sistema:</strong> Usuario no existe... (codigo_u = $codigo_buscar)";
                 echo "</div>";

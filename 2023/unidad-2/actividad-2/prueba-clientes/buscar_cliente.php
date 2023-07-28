@@ -13,18 +13,18 @@
     <!-- Contenido página -->
     <div class="container mt-3">    
         <h2>Unidad 2 | Actividad 2 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form role="form" action="mostrar_usuario.php" method="post" name="formulario">
+        <form role="form" action="mostrar_cliente.php" method="post" name="formulario">
             <div class="mb-3 mt-3">
-                <label for="codigo">Código usuario:</label>
-                <input type="number" class="form-control" required min="0" max="1000" step="1" id="codigo" name="codigo" placeholder="Ingrese código usuario buscar">
+                <label for="id_cliente">ID Cliente:</label>
+                <input type="number" class="form-control" required min="0" max="1000" step="1" id="id_cliente" name="id_cliente" placeholder="Ingrese ID cliente buscar">
             </div>
-            <button type="submit" class="btn btn-success">Buscar usuario</button>
+            <button type="submit" class="btn btn-success">Buscar cliente</button>
             <a href="index.html" class="btn btn-primary">Volver a index.html</a>
         </form>
 
         <br>
         <div class="alert alert-warning">
-            <strong>Nota:</strong> Tabla "prueba_tb_usuarios"
+            <strong>Nota:</strong> Tabla "prueba_tb_clientes"
         </div>
     </div>
 
