@@ -14,32 +14,42 @@
     <?php 
         include "conexion.php";
         include "clase_ingreso.php";
-
-        $codigo = $_REQUEST["codigo"];
-        $nombre = $_REQUEST["nombre"];
-        $apellido = $_REQUEST["apellido"];
+        
+        $id_cliente = $_REQUEST["id_cliente"]; 
+        $nombres = $_REQUEST["nombres"]; 
+        $apellidos = $_REQUEST["apellidos"];
+        $tipoDocumento = $_REQUEST["tipoDocumento"];
+        $numDocumento = $_REQUEST["numDocumento"];
+        $direccion = $_REQUEST["direccion"];
         $correo = $_REQUEST["correo"];
-
+        $telefono = $_REQUEST["telefono"];
+        $fechaNacimiento = $_REQUEST["fechaNacimiento"];
+        
         $dato_entrada = new ClaseIngreso();
-        $dato_entrada -> set_codigo_u($codigo);
-        $dato_entrada -> set_nombre_u($nombre);
-        $dato_entrada -> set_apellido_u($apellido);
+        $dato_entrada -> set_id_cliente($id_cliente);
+        $dato_entrada -> set_nombres($nombres);
+        $dato_entrada -> set_apellidos($apellidos);
+        $dato_entrada -> set_tipo_doc($tipoDocumento);
+        $dato_entrada -> set_num_doc($numDocumento);
+        $dato_entrada -> set_dir_casa($direccion);
         $dato_entrada -> set_correo($correo);
+        $dato_entrada -> set_telefono($telefono);
+        $dato_entrada -> set_fecha_nac($fechaNacimiento);
 
         $proceso = new ClaseIngreso();
-        $consulta = $proceso -> actualizar_usuario($dato_entrada);
+        $consulta = $proceso -> actualizar_cliente($dato_entrada);
     ?>
 
     <div class="container mt-3">    
         <h2>Unidad 2 | Actividad 2 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
         <div class="alert alert-success">
             <strong>Sistema:</strong> 
-            ¡Se ha actualizado el usuario <?php echo "$nombre $apellido ($codigo, $correo)!"?> 
+            ¡Se ha actualizado el cliente <?php echo "$nombres $apellidos ($id_cliente, $tipoDocumento, $numDocumento, $direccion, $correo, $telefono, $fechaNacimiento)!"?> 
         </div>
         <div class="alert alert-warning">
-            <strong>Nota:</strong> Tabla "prueba_tb_usuarios"
+            <strong>Nota:</strong> Tabla "prueba_tb_clientes"
         </div>
-        <a href="buscar_usuario.php" class="btn btn-success">buscar_usuario.php</a>
+        <a href="buscar_cliente.php" class="btn btn-success">buscar_cliente.php</a>
         <a href="index.html" class="btn btn-primary">index.html</a>
     </div>
 

@@ -162,6 +162,7 @@ use ClaseIngreso as GlobalClaseIngreso;
             try {
                 $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
                 $sql = "UPDATE prueba_tb_clientes SET tipo_doc = {$cliente->get_tipo_doc()}, num_doc = {$cliente->get_num_doc()}, nombres = '{$cliente->get_nombres()}', apellidos = '{$cliente->get_apellidos()}', dir_casa = '{$cliente->get_dir_casa()}', correo = '{$cliente->get_correo()}', telefono = '{$cliente->get_telefono()}', fecha_nac = '{$cliente->get_fecha_nac()}' WHERE id_cliente = {$cliente->get_id_cliente()}";              
+                // var_dump($sql); echo "<br>";
                 $sth = $this -> conexion -> prepare($sql);
                 $sth -> execute();
             } catch (PDOException $ex) {

@@ -36,7 +36,13 @@
 
     <div class="container mt-3">    
         <h2>Unidad 2 | Actividad 2 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
-        <form role="form" action="mostrar_busqueda.php" method="post" name="formulario">
+        <form role="form" action="actualizar_cliente.php" method="post" name="formulario">
+            <div class="row">
+                <div class="mb-3 mt-3">
+                    <label for="id_cliente">ID Cliente:</label>
+                    <input type="number" class="form-control" readonly value="<?php echo $id_cliente; ?>"  id="id_cliente" name="id_cliente">
+                </div>
+            </div>
             <div class="row">
                 <div class="col-6">
                     <div class="mb-3 mt-3">
