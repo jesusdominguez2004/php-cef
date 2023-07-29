@@ -31,10 +31,10 @@
     <div class="container mt-3">    
         <?php
             echo "<div class='shadow-lg mt-4 p-5 bg-primary text-white rounded'>";
-            echo "<h2>¡Cliente guardado!</h2>";
-            echo "<p>Nombre: $nombre</p>";
-            echo "<p>Apellido: $apellido</p>";
-            echo "<p>Correo: $correo</p>";
+            echo "<h2>¡Usuario guardado!</h2>";
+            echo "<p><strong>Nombre:</strong> $nombre</p>";
+            echo "<p><strong>Apellido:</strong> $apellido</p>";
+            echo "<p><strong>Correo:</strong> $correo</p>";
             echo "<a href='index.html' class='btn btn-light'>Ir a index.html</a>";
             echo "</div>";
         ?>
