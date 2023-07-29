@@ -160,13 +160,58 @@ use ClaseIngreso as GlobalClaseIngreso;
         // 3. actualizar cliente "prueba_tb_clientes"
         public function actualizar_cliente(GlobalClaseIngreso $cliente) {
             try {
-                $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
-                $sql = "UPDATE prueba_tb_clientes SET tipo_doc = {$cliente->get_tipo_doc()}, num_doc = {$cliente->get_num_doc()}, nombres = '{$cliente->get_nombres()}', apellidos = '{$cliente->get_apellidos()}', dir_casa = '{$cliente->get_dir_casa()}', correo = '{$cliente->get_correo()}', telefono = '{$cliente->get_telefono()}', fecha_nac = '{$cliente->get_fecha_nac()}' WHERE id_cliente = {$cliente->get_id_cliente()}";              
-                // var_dump($sql); echo "<br>";
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "UPDATE prueba_tb_clientes SET tipo_doc = {$cliente->get_tipo_doc()}, num_doc = {$cliente->get_num_doc()}, nombres = '{$cliente->get_nombres()}', apellidos = '{$cliente->get_apellidos()}', dir_casa = '{$cliente->get_dir_casa()}', correo = '{$cliente->get_correo()}', telefono = '{$cliente->get_telefono()}', fecha_nac = '{$cliente->get_fecha_nac()}' WHERE id_cliente = {$cliente->get_id_cliente()}";
                 $sth = $this -> conexion -> prepare($sql);
                 $sth -> execute();
             } catch (PDOException $ex) {
                 die ("ERROR ACTUALIZAR CLIENTE: {$ex->getMessage()}");
+            }
+        }
+
+        // 4. ver todos los clientes "prueba_tb_clientes"
+        public function ver_clientes() {
+            $matriz_clientes = array();
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "SELECT id_cliente, tipo_doc, num_doc, nombres, apellidos, dir_casa, correo, telefono, fecha_nac FROM prueba_tb_clientes ORDER BY apellidos";
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
+
+                while ($row = $sth -> fetch()) {
+                    $id_cliente = $row["id_cliente"];
+                    $tipo_doc = $row["tipo_doc"];
+                    $num_doc = $row["num_doc"];
+                    $nombres = $row["nombres"];
+                    $apellidos = $row["apellidos"];
+                    $dir_casa = $row["dir_casa"];
+                    $correo = $row["correo"];
+                    $telefono = $row["telefono"];
+                    $fecha_nac = $row["fecha_nac"];
+                    $matriz_clientes[] = array(
+                        "id_cliente" => $id_cliente, 
+                        "tipo_doc" => $tipo_doc, 
+                        "num_doc" => $num_doc, 
+                        "nombres" => $nombres, 
+                        "apellidos" => $apellidos, 
+                        "dir_casa" => $dir_casa, 
+                        "correo" => $correo, 
+                        "telefono" => $telefono, 
+                        "fecha_nac" => $fecha_nac
+                    );
+                }
+                $json_clientes = json_encode($matriz_clientes);
+                return $json_clientes;
+            } catch (PDOException $ex) {
+                die ("ERROR VER CLIENTES: {$ex->getMessage()}");
             }
         }
     }

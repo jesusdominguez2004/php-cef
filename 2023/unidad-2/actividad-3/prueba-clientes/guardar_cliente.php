@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 2 | Actividad 2 | PHP</title>
+    <title>Unidad 2 | Actividad 3 | PHP</title>
     <!-- CSS: Bootstrap 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Icons: Font Awesome 6.4.0 -->
@@ -42,14 +42,14 @@
         <?php
             echo "<div class='shadow-lg mt-4 p-5 bg-primary text-white rounded'>";
             echo "<h2>¡Cliente guardado!</h2>";
-            echo "<p>Nombres: $nombres</p>";
-            echo "<p>Apellidos: $apellidos</p>";
-            echo "<p>Tipo documento: $tipoDocumento</p>";
-            echo "<p>Número documento: $numDocumento</p>";
-            echo "<p>Dirección: $direccion</p>";
-            echo "<p>Correo: $correo</p>";
-            echo "<p>Teléfono: $telefono</p>";
-            echo "<p>Fecha nacimiento: $fechaNacimiento</p>";
+            echo "<p><strong>Nombres:</strong> $nombres</p>";
+            echo "<p><strong>Apellidos:</strong> $apellidos</p>";
+            echo "<p><strong>Tipo documento:</strong> $tipoDocumento</p>";
+            echo "<p><strong>Número documento:</strong> $numDocumento</p>";
+            echo "<p><strong>Dirección:</strong> $direccion</p>";
+            echo "<p><strong>Correo:</strong> $correo</p>";
+            echo "<p><strong>Teléfono:</strong> $telefono</p>";
+            echo "<p><strong>Fecha nacimiento:</strong> $fechaNacimiento</p>";
             echo "<a href='index.html' class='btn btn-light'>Ir a index.html</a>";
             echo "</div>";
         ?>
