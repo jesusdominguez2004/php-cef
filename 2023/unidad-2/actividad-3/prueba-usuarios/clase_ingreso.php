@@ -57,7 +57,11 @@ use ClaseIngreso as GlobalClaseIngreso;
         // 1. insertar usuario "prueba_tb_usuarios"
         public function insertar_usuario(ClaseIngreso $usuario) {
             try {
-                $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
                 $sql = "INSERT INTO prueba_tb_usuarios (nombre_u, apellido_u, correo) VALUES ('{$usuario->get_nombre_u()}', '{$usuario->get_apellido_u()}', '{$usuario->get_correo()}')";               
                 $iniciarSQL = $this -> conexion -> prepare($sql);
                 $iniciarSQL -> execute();
@@ -70,7 +74,11 @@ use ClaseIngreso as GlobalClaseIngreso;
         public function buscar_usuario(GlobalClaseIngreso $buscar) {
             $matriz_usuarios = array();
             try {
-                $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
                 $sql = "SELECT codigo_u, nombre_u, apellido_u, correo FROM prueba_tb_usuarios WHERE codigo_u = {$buscar->get_codigo_u()} ORDER BY apellido_u";              
                 $sth = $this -> conexion -> prepare($sql);
                 $sth -> execute();
@@ -97,12 +105,48 @@ use ClaseIngreso as GlobalClaseIngreso;
         // 3. actualizar usuario "prueba_tb_usuarios"
         public function actualizar_usuario(GlobalClaseIngreso $usuario) {
             try {
-                $this -> conexion = new PDO("mysql:host={$this->host};dbname={$this->database};charset=utf8", $this->user, $this->password);
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
                 $sql = "UPDATE prueba_tb_usuarios SET nombre_u = '{$usuario->get_nombre_u()}', apellido_u = '{$usuario->get_apellido_u()}', correo = '{$usuario->get_correo()}' WHERE codigo_u = {$usuario->get_codigo_u()}";              
                 $sth = $this -> conexion -> prepare($sql);
                 $sth -> execute();
             } catch (PDOException $ex) {
                 die ("ERROR ACTUALIZAR USUARIO: {$ex->getMessage()}");
+            }
+        }
+
+        // 4. ver todos los usuarios "pruebas_tb_usuarios"
+        public function ver_usuarios() {
+            $matriz_usuarios = array();
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "SELECT codigo_u, nombre_u, apellido_u, correo FROM prueba_tb_usuarios ORDER BY apellido_u";
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
+
+                while ($row = $sth -> fetch()) {
+                    $codigo_u = $row["codigo_u"];
+                    $nombre_u = $row["nombre_u"];
+                    $apellido_u = $row["apellido_u"];
+                    $correo = $row["correo"];
+                    $matriz_usuarios[] = array(
+                        "codigo_u" => $codigo_u, 
+                        "nombre_u" => $nombre_u, 
+                        "apellido_u" => $apellido_u, 
+                        "correo" => $correo
+                    );
+                }
+                $json_usuarios = json_encode($matriz_usuarios);
+                return $json_usuarios;
+            } catch (PDOException $ex) {
+                die ("ERROR VER USUARIOS: {$ex->getMessage()}");
             }
         }
     }
