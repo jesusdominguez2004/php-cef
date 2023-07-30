@@ -70,7 +70,7 @@
                 echo "<div class='alert alert-danger'>";
                 echo "<strong>Sistema:</strong> Usuario no existe... (codigo_u = $codigo_buscar)";
                 echo "</div>";
-                echo "<a href='buscar_usuario.php' class='btn btn-success'>Volver a buscar.php</a>";
+                echo "<a href='busca_elimina.php' class='btn btn-success'>Buscar otro</a>";
                 echo "</div>";
                 $codigo_u = "";
                 $nombre_u = "";
