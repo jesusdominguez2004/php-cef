@@ -214,5 +214,21 @@ use ClaseIngreso as GlobalClaseIngreso;
                 die ("ERROR VER CLIENTES: {$ex->getMessage()}");
             }
         }
+
+        // 5. eliminar cliente "prueba_tb_clientes"
+        public function eliminar_cliente(GlobalClaseIngreso $cliente) {
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "DELETE FROM prueba_tb_clientes WHERE id_cliente = {$cliente->get_id_cliente()}";
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
+            } catch (PDOException $ex) {
+                die ("ERROR ELIMINAR CLIENTE: {$ex->getMessage()}");
+            }
+        }
     }
 ?>
