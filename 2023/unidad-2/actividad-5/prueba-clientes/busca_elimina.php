@@ -18,8 +18,10 @@
                 <label for="id_cliente">ID Cliente:</label>
                 <input type="number" class="form-control" required min="0" max="1000" step="1" id="id_cliente" name="id_cliente" placeholder="Ingrese ID cliente buscar">
             </div>
-            <button type="submit" class="btn btn-success">Buscar cliente</button>
-            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Buscar cliente</button>
+                <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            </div>
         </form>
 
         <br>

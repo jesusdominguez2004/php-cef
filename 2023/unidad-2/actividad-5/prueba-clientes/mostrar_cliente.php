@@ -93,9 +93,11 @@
                 </div>
             </div>
             
-            <button type="submit" class="btn btn-warning">Actualizar cliente</button>
-            <a href="buscar_cliente.php" class="btn btn-success">Volver a buscar_cliente.php</a>
-            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-warning">Actualizar cliente</button>
+                <a href="buscar_cliente.php" class="btn btn-success">Volver a buscar_cliente.php</a>
+                <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            </div>
         </form>
 
         <br>

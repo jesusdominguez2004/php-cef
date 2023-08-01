@@ -49,8 +49,10 @@
         <div class="alert alert-warning">
             <strong>Nota:</strong> Tabla "prueba_tb_clientes"
         </div>
-        <a href="buscar_cliente.php" class="btn btn-success">buscar_cliente.php</a>
-        <a href="index.html" class="btn btn-primary">index.html</a>
+        <div class="btn-group">
+            <a href="buscar_cliente.php" class="btn btn-success">buscar_cliente.php</a>
+            <a href="index.html" class="btn btn-primary">index.html</a>
+        </div>
     </div>
 
     <!-- JavaScript: jQuery, Bootstrap, pooperjs -->

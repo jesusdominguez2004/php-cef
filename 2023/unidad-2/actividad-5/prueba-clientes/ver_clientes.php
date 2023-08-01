@@ -60,7 +60,11 @@
             </div>
         </div>
         
-        <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+        <div class="btn-group">
+            <a href="buscar_cliente.php" class="btn btn-success">Buscar cliente</a>
+            <a href="busca_elimina.php" class="btn btn-danger">Eliminar cliente</a>
+            <a href="index.html" class="btn btn-primary">index.html</a>
+        </div>
         <br><br>
         <div class="alert alert-warning">
             <strong>Nota:</strong> Tabla "prueba_tb_clientes"
