@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 2 | Actividad 4 | PHP</title>
+    <title>Unidad 2 | Actividad 5 | PHP</title>
     <!-- CSS: Bootstrap 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Icons: Font Awesome 6.4.0 -->
@@ -12,7 +12,7 @@
 <body>
     <!-- Contenido página -->
     <div class="container mt-3">    
-        <h2>Unidad 2 | Actividad 4 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
+        <h2>Unidad 2 | Actividad 5 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
         <form action="guardar_cliente.php" method="post">
             <div class="row">
                 <div class="col-6">
@@ -63,11 +63,19 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Guardar cliente</button>
-            <a href="buscar_cliente.php" class="btn btn-success">Buscar cliente</a>
-            <a href="buscar_cliente.php" class="btn btn-warning">Actualizar cliente</a>
-            <a href="ver_clientes.php" class="btn btn-dark">Ver clientes</a>
-            <a href="busca_elimina.php" class="btn btn-danger">Eliminar cliente</a>
+
+            <div class="btn-group">
+                <button type="submit" class="btn btn-primary">Guardar cliente</button>
+                <a href="buscar_cliente.php" class="btn btn-success">Buscar cliente</a>
+                <a href="buscar_cliente.php" class="btn btn-warning">Actualizar cliente</a>
+                <a href="ver_clientes.php" class="btn btn-dark">Ver clientes</a>
+                <a href="busca_elimina.php" class="btn btn-danger">Eliminar cliente</a>
+            </div>
+            <br><br>
+            <div class="btn-group">
+                <a href="productos.html" class="btn btn-primary">Insertar producto</a>
+                <a href="ver_productos.php" class="btn btn-dark">Ver productos</a>
+            </div>
         </form>
 
         <br>

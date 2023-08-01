@@ -16,6 +16,10 @@ use ClaseIngreso as GlobalClaseIngreso;
         private $password;
         private $database;
         private $conexion;
+
+        private $nombre_p;
+        private $foto_p;
+        private $precio_p;
         
         // métodos set y get
         public function set_id_cliente($id_cliente) {
@@ -88,6 +92,30 @@ use ClaseIngreso as GlobalClaseIngreso;
 
         public function get_fecha_nac() {
             return $this -> fecha_nac;
+        }
+
+        public function set_nombre_p($nombre_p) {
+            $this -> nombre_p = $nombre_p;
+        }
+
+        public function get_nombre_p() {
+            return $this -> nombre_p;
+        }
+
+        public function set_foto_p($foto_p) {
+            $this -> foto_p = $foto_p;
+        }
+
+        public function get_foto_p() {
+            return $this -> foto_p;
+        }
+
+        public function set_precio_p($precio_p) {
+            $this -> precio_p = $precio_p;
+        }
+
+        public function get_precio_p() {
+            return $this -> precio_p;
         }
 
         // constructor and new class Conexion (nuevos atributos)
@@ -228,6 +256,54 @@ use ClaseIngreso as GlobalClaseIngreso;
                 $sth -> execute();
             } catch (PDOException $ex) {
                 die ("ERROR ELIMINAR CLIENTE: {$ex->getMessage()}");
+            }
+        }
+
+        // 6. insertar producto "prueba_tb_productos"
+        public function insertar_producto(ClaseIngreso $producto) {
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "INSERT INTO prueba_tb_productos (nombre_p, foto_p, precio_p) VALUES ('{$producto->get_nombre_p()}', '{$producto->get_foto_p()}', {$producto->get_precio_p()})";               
+                $iniciarSQL = $this -> conexion -> prepare($sql);
+                $iniciarSQL -> execute();
+            } catch (PDOException $ex) {
+                die ("ERROR INSERTAR PRODUCTO: {$ex->getMessage()}");
+            }
+        }
+
+        // 7. ver todos los productos "pruebas_tb_productos"
+        public function ver_productos() {
+            $matriz_productos = array();
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "SELECT cod_p, nombre_p, foto_p, precio_p FROM prueba_tb_productos";
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
+
+                while ($row = $sth -> fetch()) {
+                    $cod_p = $row["cod_p"];
+                    $nombre_p = $row["nombre_p"];
+                    $foto_p = $row["foto_p"];
+                    $precio_p = $row["precio_p"];
+                    $matriz_productos[] = array(
+                        "cod_p" => $cod_p, 
+                        "nombre_p" => $nombre_p, 
+                        "foto_p" => $foto_p, 
+                        "precio_p" => $precio_p
+                    );
+                }
+                $json_productos = json_encode($matriz_productos);
+                return $json_productos;
+            } catch (PDOException $ex) {
+                die ("ERROR VER PRODUCTOS: {$ex->getMessage()}");
             }
         }
     }
