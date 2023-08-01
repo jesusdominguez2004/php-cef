@@ -52,9 +52,11 @@
                 <input type="text" class="form-control" value="<?php echo $correo; ?>" id="correo" name="correo">
             </div>
 
-            <button type="submit" class="btn btn-warning">Actualizar usuario</button>
-            <a href="buscar_usuario.php" class="btn btn-success">Volver a buscar.php</a>
-            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-warning">Actualizar usuario</button>
+                <a href="buscar_usuario.php" class="btn btn-success">Volver a buscar.php</a>
+                <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            </div>
         </form>
 
         <br>

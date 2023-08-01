@@ -51,10 +51,12 @@
                 <label for="correo">Correo usuario:</label>
                 <input type="text" class="form-control" required readonly value="<?php echo $correo; ?>" id="correo" name="correo">
             </div>
-
-            <button type="submit" class="btn btn-danger">Eliminar usuario</button>
-            <a href="busca_elimina.php" class="btn btn-success">Buscar otro</a>
-            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn btn-danger">Eliminar usuario</button>
+                <a href="busca_elimina.php" class="btn btn-success">Buscar otro</a>
+                <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            </div>
         </form>
 
         <br>

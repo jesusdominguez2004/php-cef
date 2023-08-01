@@ -18,8 +18,10 @@
                 <label for="codigo">Código usuario:</label>
                 <input type="number" class="form-control" required min="0" max="1000" step="1" id="codigo" name="codigo" placeholder="Ingrese código usuario buscar">
             </div>
-            <button type="submit" class="btn btn-success">Buscar usuario</button>
-            <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            <div class="btn-group">
+                <button type="submit" class="btn btn-success">Buscar usuario</button>
+                <a href="index.html" class="btn btn-primary">Volver a index.html</a>
+            </div>
         </form>
 
         <br>
