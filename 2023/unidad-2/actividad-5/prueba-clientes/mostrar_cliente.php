@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 2 | Actividad 4 | PHP</title>
+    <title>Unidad 2 | Actividad 5 | PHP</title>
     <!-- CSS: Bootstrap 5.3.0 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <!-- Icons: Font Awesome 6.4.0 -->
@@ -35,7 +35,7 @@
     ?>
 
     <div class="container mt-3">    
-        <h2>Unidad 2 | Actividad 4 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
+        <h2>Unidad 2 | Actividad 5 | Prueba clientes <i class="fa-brands fa-php fa-xl"></i></h2>
         <form role="form" action="actualizar_cliente.php" method="post" name="formulario">
             <div class="row">
                 <div class="mb-3 mt-3">
@@ -109,7 +109,7 @@
     <?php 
             } else {
                 echo "<div class='container mt-3'>";
-                echo "<h2>Unidad 2 | Actividad 4 | Prueba clientes <i class='fa-brands fa-php fa-xl'></i></h2>";
+                echo "<h2>Unidad 2 | Actividad 5 | Prueba clientes <i class='fa-brands fa-php fa-xl'></i></h2>";
                 echo "<div class='alert alert-danger'>";
                 echo "<strong>Sistema:</strong> Cliente no existe... (id_cliente = $id_cliente)";
                 echo "</div>";
