@@ -62,8 +62,11 @@
         <div class="alert alert-warning">
             <strong>Nota:</strong> Tabla "prueba_tb_productos"
         </div>
-        <a href="productos.html" class="btn btn-success">Insertar otro</a>
-        <a href="index.html" class="btn btn-primary">index.html</a>
+        <div class="btn-group">
+            <a href="productos.html" class="btn btn-success">Insertar otro</a>
+            <a href="ver_productos.php" class="btn btn-dark">Ver productos</a>
+            <a href="index.html" class="btn btn-primary">index.html</a>
+        </div>
     </div>
 
     <!-- JavaScript: jQuery, Bootstrap, pooperjs -->
