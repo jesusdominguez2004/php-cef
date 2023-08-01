@@ -40,7 +40,7 @@
                                 echo "<tr>";
                                 echo "<td style='text-align: center;'>" . $json_productos[$i] -> cod_p . "</td>";
                                 echo "<td style='text-align: center;'>" . $json_productos[$i] -> nombre_p . "</td>";
-                                echo "<td style='text-align: center;'><img width='50' src='img/" . $json_productos[$i] -> foto_p . "' alt='" . $json_productos[$i] -> foto_p . "'></td>";
+                                echo "<td style='text-align: center;'><img width='50' src='../img/" . $json_productos[$i] -> foto_p . "' alt='" . $json_productos[$i] -> foto_p . "'></td>";
                                 echo "<td style='text-align: center;'>$" . $json_productos[$i] -> precio_p . "</td>";
                                 echo "</tr>";
                             }

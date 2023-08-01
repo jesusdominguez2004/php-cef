@@ -22,7 +22,7 @@
             $file_name = trim($_FILES["foto_p"]["name"]);
             $file_name = substr($file_name, -20);
             $file_name = preg_replace("/ /", "", $file_name);
-            $path = "img/";
+            $path = "../img/";
 
             $formatos_validos = preg_match("/.jpg/", $file_name) ||
                                 preg_match("/.JPG/", $file_name) ||
