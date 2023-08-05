@@ -1,20 +1,28 @@
 <?php
     use ClaseIngreso as GlobalClaseIngreso;
     class ClaseIngreso {
+        // prueba_tb_usuarios
         private $codigo_u;
         private $nombre_u;
         private $apellido_u;
         private $correo;
-
+        
+        // Conexión PDO
         private $host;
         private $user;
         private $password;
         private $database;
         private $conexion;
 
+        // prueba_tb_productos
         private $nombre_p;
         private $foto_p;
         private $precio_p;
+
+        // prueba_tb_login
+        private $nombre_usuario;
+        private $usuario;
+        private $clave;
         
         // métodos set y get
         public function set_codigo_u($codigo_u) {
@@ -73,6 +81,30 @@
             return $this -> precio_p;
         }
 
+        public function set_nombre_usuario($nombre_usuario) {
+            $this -> nombre_usuario = $nombre_usuario;
+        }
+
+        public function get_nombre_usuario() {
+            return $this -> nombre_usuario;
+        }
+
+        public function set_usuario($usuario) {
+            $this -> usuario = $usuario;
+        }
+
+        public function get_usuario() {
+            return $this -> usuario;
+        }
+
+        public function set_clave($clave) {
+            $this -> clave = $clave;
+        }
+
+        public function get_clave() {
+            return $this -> clave;
+        }
+
         // constructor and new class Conexion (nuevos atributos)
         public function __construct() {
             $dato = new Conexion();
@@ -83,7 +115,7 @@
         }
 
         // 1. insertar usuario "prueba_tb_usuarios"
-        public function insertar_usuario(ClaseIngreso $usuario) {
+        public function insertar_usuario(GlobalClaseIngreso $usuario) {
             try {
                 $this -> conexion = new PDO(
                     "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
@@ -195,7 +227,7 @@
         }
 
         // 6. insertar producto "prueba_tb_productos"
-        public function insertar_producto(ClaseIngreso $producto) {
+        public function insertar_producto(GlobalClaseIngreso $producto) {
             try {
                 $this -> conexion = new PDO(
                     "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
@@ -239,6 +271,38 @@
                 return $json_productos;
             } catch (PDOException $ex) {
                 die ("ERROR VER PRODUCTOS: {$ex->getMessage()}");
+            }
+        }
+
+        // 8. validar usuario login "pruebas_tb_login"
+        public function validar_usuario(GlobalClaseIngreso $usuario) {
+            $matriz_usuarios = array();
+            try {
+                $this -> conexion = new PDO(
+                    "mysql:host={$this->host};dbname={$this->database};charset=utf8", 
+                    $this->user, 
+                    $this->password
+                );
+                $sql = "SELECT nombre_usuario, usuario, clave FROM prueba_tb_usuarios WHERE usuario = '{$usuario->get_usuario()}' AND clave = '{$usuario->get_clave()}'";
+                $sth = $this -> conexion -> prepare($sql);
+                $sth -> execute();
+
+                while ($row = $sth -> fetch()) {
+                    $cod_usuario = $row["cod_usuario"];
+                    $nombre_usuario = $row["nombre_usuario"];
+                    $usuario = $row["usuario"];
+                    $clave = $row["clave"];
+                    $matriz_usuarios[] = array(
+                        "cod_usuario" => $cod_usuario, 
+                        "nombre_usuario" => $nombre_usuario, 
+                        "usuario" => $usuario, 
+                        "clave" => $clave
+                    );
+                }
+                $json_usuarios = json_encode($matriz_usuarios);
+                return $json_usuarios;
+            } catch (PDOException $ex) {
+                die ("ERROR VER USUARIOS: {$ex->getMessage()}");
             }
         }
     }
